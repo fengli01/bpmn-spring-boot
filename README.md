@@ -4,4 +4,4 @@
 2、支持activiti和flowable
 ```
 
-### 有关bpmn的例子，参照 [bpmn例子](https://github.com/fengli01/vue-bpmn-element])
+### 有关bpmn的例子，参照 [bpmn例子](https://github.com/fengli01/vue-bpmn-element.git)
