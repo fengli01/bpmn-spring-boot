@@ -1,0 +1,19 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/activiti?useunicode=true&characterEncoding=utf-8&useTimezone=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
+    username: root
+    password: fl123456
+  activiti:
+    check-process-definitions: false
+    database-schema-update: true
+    db-history-used: true
+    history-level: full
+    deployment-mode: single-resource
+
+file:
+  diagram:
+    path: /Users/fengli/diagram/
