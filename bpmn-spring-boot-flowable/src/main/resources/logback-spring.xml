@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProperty scope="context" name="LOG_HOME" source="log.home" defaultValue="/data/logs/bpmn-spring-boot"/>
+	<springProperty scope="context" name="LOG_ROOT_LEVEL" source="log.level" defaultValue="INFO"/>
+	<springProperty scope="context" name="STDOUT" source="log.stdout" defaultValue="STDOUT"/>
+	<property name="LOG_PREFIX" value="flowable" />
+	<property name="LOG_CHARSET" value="UTF-8" />
+	<property name="LOG_DIR" value="${LOG_HOME}/%d{yyyyMMdd}" />
+<!--	<property name="LOG_MSG" value="- | [%X{traceId}] | [%d{yyyyMMdd HH:mm:ss.SSS}] | [%level]|[${HOSTNAME}] | [%thread]|[%logger{40}] | [&ndash;&gt; %msg] |%n "/>-->
+	<property name="LOG_MSG" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+	<property name="MAX_FILE_SIZE" value="50MB" />
+	<property name="MAX_HISTORY" value="10"/>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${LOG_MSG}</pattern>
+		</layout>
+	</appender>
+	<appender name="0" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	</appender>
+	
+	<appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/all_${LOG_PREFIX}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_DIR}/all_${LOG_PREFIX}%i.log</FileNamePattern>
+			<MaxHistory>${MAX_HISTORY}</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${LOG_MSG}</pattern>
+		</layout>
+	</appender>
+	
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+           <filter class="ch.qos.logback.classic.filter.LevelFilter">
+               <level>ERROR</level>
+               <OnMismatch>DENY</OnMismatch>
+               <OnMatch>ACCEPT</OnMatch>
+           </filter>
+           <File>${LOG_HOME}/err_${LOG_PREFIX}.log</File>
+           <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                   <FileNamePattern>${LOG_DIR}/err_${LOG_PREFIX}%i.log</FileNamePattern>
+                   <MaxHistory>${MAX_HISTORY}</MaxHistory>
+                   <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                   <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+               </timeBasedFileNamingAndTriggeringPolicy>
+           </rollingPolicy>
+           <layout class="ch.qos.logback.classic.PatternLayout">
+                   <Pattern>${LOG_MSG}</Pattern>
+           </layout>
+    </appender>
+	
+	<logger name="org.springframework"     level="ERROR" /> 
+	<logger name="org.apache.commons"      level="ERROR" />
+	<logger name="org.apache.http" level="ERROR" />
+	<logger name="cn.zunyi001.flowable" level="DEBUG"/>
+     
+	<root level="${LOG_ROOT_LEVEL}">
+		<appender-ref ref="${STDOUT}" />
+		<appender-ref ref="FILE_ALL" />
+		<appender-ref ref="FILE_ERROR" />
+	</root>
+	
+</configuration>

@@ -1,0 +1,19 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/flowable?useunicode=true&characterEncoding=utf-8&useTimezone=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
+    username: root
+    password: fl123456
+
+flowable:
+  check-process-definitions: false
+  database-schema-update: true
+  history-level: full
+  db-history-used: true
+
+file:
+  diagram:
+    path: /Users/fengli/diagram/
