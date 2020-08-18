@@ -1,9 +1,9 @@
 package cn.zunyi001.flowable.controller;
 
 import cn.zunyi001.flowable.utils.ImageUtil;
+import cn.zunyi001.flowable.vo.JsonResult;
 import cn.zunyi001.flowable.vo.ProcessDeploymentVo;
-import cn.zunyi001.flowable.vo.result.JsonResult;
-import cn.zunyi001.flowable.vo.result.Resp;
+import cn.zunyi001.flowable.vo.Resp;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.RepositoryService;
 import org.springframework.beans.factory.annotation.Value;

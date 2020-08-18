@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zunyi001.flowable.mapper.ProcessRecordMapper">
+  <resultMap id="BaseResultMap" type="cn.zunyi001.flowable.model.ProcessRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="proc_id" jdbcType="VARCHAR" property="procId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="xml_str" jdbcType="VARCHAR" property="xmlStr" />
+    <result column="svg_str" jdbcType="VARCHAR" property="svgStr" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="del_flag" jdbcType="BIT" property="delFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, proc_id, name, xml_str, svg_str, status, note, del_flag, create_time, update_time
+  </sql>
+</mapper>

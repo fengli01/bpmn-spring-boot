@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <!-- 防止生成的代码中有很多注释 -->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="com.chrm.mybatis.generator.plugins.CommentPlugin">
+            <!-- 抑制警告 -->
+            <property name="suppressTypeWarnings" value="true" />
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false" />
+            <!-- 是否生成注释代时间戳-->
+            <property name="suppressDate" value="true" />
+        </plugin>
+        <plugin type="com.chrm.mybatis.generator.plugins.LombokPlugin">
+            <property name="hasLombok" value="true"/>
+        </plugin>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="cn.zunyi001.flowable.base.mapper.BaseMapper"/>
+        </plugin>
+        <!--<plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="src/test/java/"/>
+            <property name="targetPackage" value="com.xwjk.xpzy.service"/>
+            <property name="templatePath" value="${generator.project.path}/src/main/resources/generator/ftl/service.ftl"/>
+            <property name="Suffix" value="Service"/>
+            <property name="fileName" value="${tableClass.shortClassName}${Suffix}.java"/>
+        </plugin>-->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/flowable?useunicode=true&amp;characterencoding=utf-8&amp;allowMultiQueries=true"
+                        userId="root"
+                        password="123456"></jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--数据表对应的model层-->
+        <javaModelGenerator targetPackage="cn.zunyi001.flowable.model" targetProject="src/test/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="comments" value="true"/>
+        </javaModelGenerator>
+
+
+        <!--sql mapper 映射配置文件-->
+        <sqlMapGenerator targetPackage="cn.zunyi001.flowable.mapping" targetProject="src/test/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--mybatis3中的mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.zunyi001.flowable.mapper"
+                             targetProject="src/test/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--数据表进行生成操作-->
+        <table tableName="tb_process_record" domainObjectName="ProcessRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="id" sqlStatement="MySql" identity="true"/></table>
+
+    </context>
+</generatorConfiguration>

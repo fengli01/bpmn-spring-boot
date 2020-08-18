@@ -6,15 +6,16 @@ import lombok.Getter;
 /**
  * @Description:
  * @author: fengli
- * @date: 2020/7/24 11:42 下午
+ * @date: 2020/8/14 11:35 上午
  */
 @Getter
 @AllArgsConstructor
 public enum ResultEnum {
 
-    OK(200, "成功"),
-    INTERNAL_ERROR(500, "服务器内部错误");
+    OK(200, "success"),
+    INTERNAL_ERROR(500, "服务器内部错误");;
 
     private Integer code;
+
     private String desc;
 }
