@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zunyi001.flowable.mapper.ApproveTaskMapper">
+  <resultMap id="BaseResultMap" type="cn.zunyi001.flowable.model.ApproveTask">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_name" jdbcType="VARCHAR" property="taskName" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="task_id" jdbcType="VARCHAR" property="taskId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="approve_id" jdbcType="INTEGER" property="approveId" />
+    <result column="approve_name" jdbcType="VARCHAR" property="approveName" />
+    <result column="module_id" jdbcType="INTEGER" property="moduleId" />
+    <result column="del_flag" jdbcType="BIT" property="delFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, task_name, user_id, user_name, task_id, status, type, approve_id, approve_name, 
+    module_id, del_flag, create_time, update_time
+  </sql>
+</mapper>

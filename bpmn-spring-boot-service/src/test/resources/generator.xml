@@ -64,7 +64,8 @@
         </javaClientGenerator>
 
         <!--数据表进行生成操作-->
-        <table tableName="tb_process_record" domainObjectName="ProcessRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="id" sqlStatement="MySql" identity="true"/></table>
+<!--        <table tableName="tb_leave_record" domainObjectName="LeaveRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="id" sqlStatement="MySql" identity="true"/></table>-->
+        <table tableName="tb_approve_task" domainObjectName="ApproveTask" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"><generatedKey column="id" sqlStatement="MySql" identity="true"/></table>
 
     </context>
 </generatorConfiguration>
